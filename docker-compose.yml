@@ -1,0 +1,14 @@
+version: "2.1"
+
+services:
+  db:
+    image: postgres:13.0-alpine
+    network_mode: host
+    environment:
+      - POSTGRES_USER=cinema
+      - POSTGRES_PASSWORD=cinema
+      - POSTGRES_DB=cinema
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+      - ./docker/initdb:/docker-entrypoint-initdb.d
+      - ./pgdata/cinema:/var/lib/postgresql/data/pgdata
