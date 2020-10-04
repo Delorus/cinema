@@ -2,13 +2,11 @@ create table movies
 (
     id     serial primary key,
     title  text not null,
-    year   int,
     genres varchar(1024)
 );
 create table movie_tags
 (
     id       serial primary key,
-    tag_id   int,
     user_id  int    not null,
     movie_id int    not null,
     tag      text   not null,
